@@ -1,6 +1,6 @@
 package com.channoufi.banking.models;
 
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -17,34 +17,23 @@ import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import jakarta.persistence.JoinColumn;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
 @Entity
-public  class Transaction extends AbstractEntity{
-	
+public class Transaction extends AbstractEntity {
 
+    private BigDecimal amount;
 
-	
+    @Enumerated(EnumType.STRING)
+    private TransactionType type;
 
-	private BigDecimal amount;
+    private String destinationIban;
 
-	@Enumerated(EnumType.STRING)
-	private TransactionType type;
-
-	private String destinationIban;
-
-	
-
-	@ManyToOne
-	@JoinColumn(name="id_user")
-	private User user;
+    @Column(updatable = false)
+    private LocalDate transactionDate;
+    @ManyToOne
+    @JoinColumn(name = "id_user")
+    private User user;
 }
-
-
-
-
-
-
