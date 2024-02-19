@@ -1,7 +1,6 @@
 package com.channoufi.banking.models;
 
-
-public enum TransactionType{
-TRANSFERT,
-  DEPOSIT
+public enum TransactionType {
+    TRANSFERT,
+    DEPOSIT
 }
