@@ -12,7 +12,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author channoufisaber
  */
-public interface AccountRepository extends JpaRepository<Account, Integer>{
-    Optional<Account> findByIban(String iban);
-    Optional<Account> findByUserId(Integer id);
+public interface AccountRepository extends JpaRepository<Account, Integer> {
+
+  Optional<Account> findByIban(String iban);
+
+  Optional<Account> findByUserId(Integer id);
 }

@@ -1,11 +1,12 @@
 package com.channoufi.banking.dto;
 
 import com.channoufi.banking.models.User;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -48,7 +49,6 @@ public class UserDto {
   private boolean active;
 
   public static UserDto fromEntity(User user) {
-    // null check
     return UserDto.builder()
         .id(user.getId())
         .firstname(user.getFirstname())
@@ -60,7 +60,6 @@ public class UserDto {
   }
 
   public static User toEntity(UserDto user) {
-    // null check
     return User.builder()
         .id(user.getId())
         .firstname(user.getFirstname())

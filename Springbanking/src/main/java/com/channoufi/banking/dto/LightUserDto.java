@@ -1,13 +1,14 @@
 package com.channoufi.banking.dto;
 
 import com.channoufi.banking.models.User;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import javax.validation.constraints.NotEmpty;
+
 
 @Getter
 @Setter
@@ -28,7 +29,6 @@ public class LightUserDto {
   private String lastname;
 
   public static LightUserDto fromEntity(User user) {
-    // null check
     return LightUserDto.builder()
         .id(user.getId())
         .firstname(user.getFirstname())
@@ -37,7 +37,6 @@ public class LightUserDto {
   }
 
   public static User toEntity(LightUserDto user) {
-    // null check
     return User.builder()
         .id(user.getId())
         .firstname(user.getFirstname())

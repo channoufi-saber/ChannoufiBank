@@ -11,12 +11,13 @@ import java.util.List;
  * @author channoufisaber
  */
 public interface AbstractService<T> {
-    
-    Integer save(T dto);
 
-    List<T> findAll();
+  Integer save(T dto);
 
-    T findById(Integer id);
+  List<T> findAll();
 
-    void delete(Integer id);
+  T findById(Integer id);
+
+  void delete(Integer id);
+
 }

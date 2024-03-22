@@ -1,5 +1,6 @@
 package com.channoufi.banking.controllers;
 
+import com.channoufi.banking.dto.LightUserDto;
 import com.channoufi.banking.dto.UserDto;
 import com.channoufi.banking.services.UserService;
 import java.util.List;
@@ -18,47 +19,48 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
-	private final UserService service;
 
-	@PostMapping("/")
-	public ResponseEntity<Integer> save(
-		@RequestBody UserDto userDto
-	){
-		return ResponseEntity.ok(service.save(userDto));
-	}
+  private final UserService service;
 
-	@GetMapping("/")
-	public ResponseEntity<List<UserDto>> findAll(){
-		return ResponseEntity.ok(service.findAll());
-	}
+  @PostMapping("/")
+  public ResponseEntity<Integer> save(
+      @RequestBody LightUserDto userDto
+  ) {
+    return ResponseEntity.ok(service.update(userDto));
+  }
 
-	@GetMapping("/{user-id}")
-	public ResponseEntity<UserDto> findById(
-		@PathVariable("user-id") Integer userId
-	){
-		return ResponseEntity.ok(service.findById(userId));
-	}
+  @GetMapping("/")
+  public ResponseEntity<List<UserDto>> findAll() {
+    return ResponseEntity.ok(service.findAll());
+  }
 
-	@PatchMapping("/validate/{user-id}")
-	public ResponseEntity<Integer> validateAccount(
-		@PathVariable("user-id") Integer userId
-	){
-		return ResponseEntity.ok(service.validateAccount(userId));
-	}
+  @GetMapping("/{user-id}")
+  public ResponseEntity<UserDto> findById(
+      @PathVariable("user-id") Integer userId
+  ) {
+    return ResponseEntity.ok(service.findById(userId));
+  }
 
-	@PatchMapping("/invalidate/{user-id}")
-	public ResponseEntity<Integer> invalidateAccount(
-		@PathVariable("user-id") Integer userId
-	){
-		return ResponseEntity.ok(service.invalidateAccount(userId));
-	}
+  @PatchMapping("/validate/{user-id}")
+  public ResponseEntity<Integer> validateAccount(
+      @PathVariable("user-id") Integer userId
+  ) {
+    return ResponseEntity.ok(service.validateAccount(userId));
+  }
 
-	@DeleteMapping("/{user-id}")
-	public ResponseEntity<Void> delete(
-		@PathVariable("user-id") Integer userId
-	){
-		service.delete(userId);
-		return ResponseEntity.accepted().build();
-	}
+  @PatchMapping("/invalidate/{user-id}")
+  public ResponseEntity<Integer> invalidateAccount(
+      @PathVariable("user-id") Integer userId
+  ) {
+    return ResponseEntity.ok(service.invalidateAccount(userId));
+  }
+
+  @DeleteMapping("/{user-id}")
+  public ResponseEntity<Void> delete(
+      @PathVariable("user-id") Integer userId
+  ) {
+    service.delete(userId);
+    return ResponseEntity.accepted().build();
+  }
 
 }

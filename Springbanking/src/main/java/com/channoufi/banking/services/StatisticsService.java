@@ -15,8 +15,13 @@ import java.util.List;
  * @author channoufisaber
  */
 public interface StatisticsService {
-    List<TransactionSumDetails> findSumTractionsByDate(LocalDate startDate,LocalDate endDate,Integer userId);
-    BigDecimal getAccountBalance(Integer userId);
-    BigDecimal highestTransfer(Integer userId);
-    BigDecimal highestDeposit(Integer userId);
+
+  List<TransactionSumDetails> findSumTractionsByDate(LocalDate startDate, LocalDate endDate, Integer userId);
+
+  BigDecimal getAccountBalance(Integer userId);
+
+  BigDecimal highestTransfer(Integer userId);
+
+  BigDecimal highestDeposit(Integer userId);
+
 }

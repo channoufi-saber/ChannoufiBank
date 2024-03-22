@@ -2,20 +2,22 @@ package com.channoufi.banking.handlers;
 
 import com.channoufi.banking.exceptions.ObjectValidationException;
 import com.channoufi.banking.exceptions.OperationNonPermittedException;
-import jakarta.persistence.EntityNotFoundException;
+import javax.persistence.EntityNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 
 @RestControllerAdvice
-public  class GlobalExceptionHandler {
-	
-	@ExceptionHandler({ObjectValidationException.class})
-  	public ResponseEntity<ExceptionRepresentation> handleException(ObjectValidationException exception) {
+public class GlobalExceptionHandler {
+
+  @ExceptionHandler({ObjectValidationException.class})
+  public ResponseEntity<ExceptionRepresentation> handleException(ObjectValidationException exception) {
     ExceptionRepresentation representation = ExceptionRepresentation.builder()
         .errorMessage("Object not valid exception has occurred")
         .errorSource(exception.getViolationSource())
@@ -57,5 +59,24 @@ public  class GlobalExceptionHandler {
         .body(representation);
   }
 
+  @ExceptionHandler(DisabledException.class)
+  public ResponseEntity<ExceptionRepresentation> handleDisabledException() {
+    ExceptionRepresentation representation = ExceptionRepresentation.builder()
+        .errorMessage("You cannot access your account because it is not yet activated")
+        .build();
+    return ResponseEntity
+        .status(HttpStatus.FORBIDDEN)
+        .body(representation);
+  }
+
+  @ExceptionHandler(BadCredentialsException.class)
+  public ResponseEntity<ExceptionRepresentation> handleBadCredentialsException() {
+    ExceptionRepresentation representation = ExceptionRepresentation.builder()
+        .errorMessage("Your email and / or password is incorrect")
+        .build();
+    return ResponseEntity
+        .status(HttpStatus.FORBIDDEN)
+        .body(representation);
+  }
 
 }

@@ -10,6 +10,5 @@ import com.channoufi.banking.dto.AccountDto;
  *
  * @author channoufisaber
  */
-public interface AccountService extends AbstractService<AccountDto>{
-    
+public interface AccountService extends AbstractService<AccountDto> {    
 }

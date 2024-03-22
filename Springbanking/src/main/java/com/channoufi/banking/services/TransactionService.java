@@ -12,6 +12,7 @@ import java.util.List;
  *
  * @author channoufisaber
  */
-public interface TransactionService extends AbstractService<TransactionDto>{
+public interface TransactionService extends AbstractService<TransactionDto> {
+
   List<TransactionDto> findAllByUserId(Integer userId);
 }

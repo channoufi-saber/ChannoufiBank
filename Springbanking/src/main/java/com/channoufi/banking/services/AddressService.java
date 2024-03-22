@@ -10,6 +10,5 @@ import com.channoufi.banking.dto.AddressDto;
  *
  * @author channoufisaber
  */
-public interface AddressService extends AbstractService<AddressDto> {
-    
+public interface AddressService extends AbstractService<AddressDto> {    
 }

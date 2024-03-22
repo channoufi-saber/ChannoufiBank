@@ -1,29 +1,25 @@
 package com.channoufi.banking.models;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.experimental.SuperBuilder;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.JoinColumn;
+
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public  class Address extends AbstractEntity{
-	
+public class Address extends AbstractEntity {
 
-
- private String street;
+  private String street;
 
   private Integer houseNumber;
 
@@ -34,7 +30,6 @@ public  class Address extends AbstractEntity{
   private String county;
 
   @OneToOne
-  @JoinColumn(name="id_user")
+  @JoinColumn(name = "id_user")
   private User user;
-
 }

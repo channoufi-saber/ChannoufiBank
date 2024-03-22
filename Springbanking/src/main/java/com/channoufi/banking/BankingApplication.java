@@ -1,3 +1,4 @@
+
 package com.channoufi.banking;
 
 import org.springframework.boot.SpringApplication;
