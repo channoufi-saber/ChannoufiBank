@@ -1,0 +1,20 @@
+<div class="p-3">
+	<h2>My transactions</h2>
+	<div class="d-flex justify-content-end mb-3">
+		<a [routerLink]="['/user/new-transaction']" type="button" class="btn btn-success" >
+			<em class="fas fa-plus"></em>&nbsp;New transaction
+		</a>
+	</div>
+	<div>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th scope="col">Date</th>
+					<th scope="col">Amount</th>
+					<th scope="col">IBAN</th>
+					<th scope="col">Type</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>

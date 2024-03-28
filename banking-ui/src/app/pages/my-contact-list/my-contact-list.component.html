@@ -1,0 +1,21 @@
+<div class="p-3">
+	<h2>My contact list</h2>
+	<div class="d-flex justify-content-end mb-3">
+		<a [routerLink]="['/user/new-contact']" class="btn btn-success">
+			<em class="fas fa-plus"></em>&nbsp;New contact
+		</a>
+	</div>
+	<div>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th scope="col">Firstname</th>
+					<th scope="col">Lastname</th>
+					<th scope="col">Email</th>
+					<th scope="col">IBAN</th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
