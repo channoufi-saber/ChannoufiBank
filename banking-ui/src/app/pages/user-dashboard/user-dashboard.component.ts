@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LightInfoInput } from 'src/app/components/light-info/light-info.component';
+import { TransactionsService } from 'src/app/services/services';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -9,10 +10,17 @@ import { LightInfoInput } from 'src/app/components/light-info/light-info.compone
 export class UserDashboardComponent implements OnInit {
   accountInfoList: Array<LightInfoInput> =[];
 
-  constructor() { }
+  constructor(
+    private transactionService:TransactionsService
+    ) { }
 
   ngOnInit(): void {
     this.initializeAccountInfo();
+    this.transactionService.findAll1().subscribe({
+      next:(data)=>{
+        console.log('Transactions list',data);
+      }
+    })
   }
 
   private initializeAccountInfo(){

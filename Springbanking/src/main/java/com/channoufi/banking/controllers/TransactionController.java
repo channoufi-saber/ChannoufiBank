@@ -2,6 +2,9 @@ package com.channoufi.banking.controllers;
 
 import com.channoufi.banking.dto.TransactionDto;
 import com.channoufi.banking.services.TransactionService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/transactions")
 @RequiredArgsConstructor
+@Tag(name = "transactions")
 public class TransactionController {
 
   private final TransactionService service;

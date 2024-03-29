@@ -2,6 +2,9 @@ package com.channoufi.banking.controllers;
 
 import com.channoufi.banking.dto.ContactDto;
 import com.channoufi.banking.services.ContactService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/contacts")
 @RequiredArgsConstructor
+@Tag(name = "contact")
 public class ContactController {
 
   private final ContactService service;

@@ -3,6 +3,9 @@ package com.channoufi.banking.controllers;
 import com.channoufi.banking.dto.LightUserDto;
 import com.channoufi.banking.dto.UserDto;
 import com.channoufi.banking.services.UserService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
+@Tag(name = "user")
 public class UserController {
 
   private final UserService service;

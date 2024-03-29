@@ -2,6 +2,9 @@ package com.channoufi.banking.controllers;
 
 import com.channoufi.banking.dto.AddressDto;
 import com.channoufi.banking.services.AddressService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/adresses")
 @RequiredArgsConstructor
+@Tag(name = "address")
 public class AddressController {
 
   private final AddressService service;

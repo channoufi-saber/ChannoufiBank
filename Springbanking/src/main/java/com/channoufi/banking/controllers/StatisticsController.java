@@ -2,6 +2,9 @@ package com.channoufi.banking.controllers;
 
 import com.channoufi.banking.dto.TransactionSumDetails;
 import com.channoufi.banking.services.StatisticsService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/statistics")
 @RequiredArgsConstructor
+@Tag(name = "statistics")
 public class StatisticsController {
 
   private final StatisticsService service;

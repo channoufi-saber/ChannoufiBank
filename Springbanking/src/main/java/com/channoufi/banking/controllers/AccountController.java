@@ -2,6 +2,9 @@ package com.channoufi.banking.controllers;
 
 import com.channoufi.banking.dto.AccountDto;
 import com.channoufi.banking.services.AccountService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/accounts")
 @RequiredArgsConstructor
+@Tag(name = "accounts")
 public class AccountController {
 
   private final AccountService service;
