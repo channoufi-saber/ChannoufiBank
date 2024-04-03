@@ -15,6 +15,26 @@
 					<th scope="col">Type</th>
 				</tr>
 			</thead>
+			<tbody>
+				<tr *ngFor="let trs of transactions">
+					<th scope="row">{{trs.transactionDate}} </th>
+					<td>
+					<span
+					[class.text-danger]="trs.type==='TRANSFERT'"
+					[class.text-success]="trs.type==='DEPOSIT'"
+					>{{trs.amount}}</span>
+					</td>
+					<td>{{trs.destinationIban}}</td>
+					<td>
+					<span
+					class="badge"
+					[class.bg-danger]="trs.type==='TRANSFERT'"
+					[class.bg-success]="trs.type==='DEPOSIT'"
+					>
+					{{trs.type}}</span>
+					</td>
+				</tr>
+			</tbody>
 		</table>
 	</div>
 </div>

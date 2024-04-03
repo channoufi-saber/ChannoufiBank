@@ -30,12 +30,17 @@ export class LoginComponent implements OnInit {
       body:this.authRequest
 
     }).subscribe({
-      next:(data)=>{
+      next:async (data)=>{
         console.log(data);
         localStorage.setItem('token',data.token as string);
         const helper = new JwtHelperService();
         const decodedToken = helper.decodeToken(data.token!);        
         console.log(decodedToken)
+        if(decodedToken.authorities[0].authority ==='ROLE_ADMIN'){
+          await this.router.navigate(['admin/dashboard']);
+        }else{
+          await this.router.navigate(['user/dashboard']);
+        }
       },
       error:(err)=>{
         console.log(err)
